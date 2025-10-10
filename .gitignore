@@ -1,0 +1,10 @@
+# dependencies
+node_modules
+# Playwright stuff
+playwright-report
+test-results
+blob-report
+# OS
+.DS_Store
+# env
+.env
