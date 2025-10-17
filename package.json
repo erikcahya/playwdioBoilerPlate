@@ -1,16 +1,31 @@
 {
-  "name": "playwright-boilerplate-js",
+  "name": "create-playwright-boilerplate",
   "version": "1.0.0",
-  "private": true,
+  "description": "CLI tool to generate Playwright test automation projects",
   "type": "module",
-  "scripts": {
-    "test": "playwright test",
-    "test:ui": "playwright test --ui",
-    "test:headed": "playwright test --headed",
-    "test:debug": "PWDEBUG=1 playwright test",
-    "report": "playwright show-report",
-    "codegen": "playwright codegen",
-    "trace": "playwright show-trace test-results/*.zip"
+  "bin": {
+    "create-playwright-boilerplate": "./bin/cli.js"
+  },
+  "files": [
+    "bin",
+    "templates"
+  ],
+  "keywords": [
+    "playwright",
+    "testing",
+    "automation",
+    "boilerplate",
+    "generator",
+    "cli"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/create-playwright-boilerplate.git"
+  },
+  "engines": {
+    "node": ">=16.0.0"
   },
   "devDependencies": {
     "@playwright/test": "^1.48.2",
