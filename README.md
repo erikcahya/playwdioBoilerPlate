@@ -1,17 +1,21 @@
-# Create Playwright Boilerplate
+# Create PW (Playwright Boilerplate)
 
 CLI tool untuk generate Playwright test automation project dengan boilerplate siap pakai.
 
 ## Usage
 
-### Menggunakan npm (Recommended)
+### Menggunakan npm (Recommended) - SIMPLE!
 
 ```bash
-# Jika sudah publish ke npm
-npm create playwright-boilerplate my-project
+# Seperti npm init wdio!
+npm init pw .
 
-# Atau dengan npx
-npx create-playwright-boilerplate my-project
+# Atau untuk project baru:
+npm init pw my-project
+
+# Atau dengan npx:
+npx create-pw my-project
+npx create-pw .
 ```
 
 ### Test Locally (Sebelum Publish)
@@ -23,11 +27,12 @@ cd playwdioBoilerPlate
 # 2. Link package secara global
 npm link
 
-# 3. Gunakan CLI untuk generate project baru
-create-playwright-boilerplate my-new-project
+# 3. Gunakan seperti npm init wdio!
+cd ~/Desktop/my-project
+npm init pw .
 
-# 4. Atau langsung dengan npx dari local
-npx . my-new-project
+# Atau create project baru:
+npm init pw my-new-project
 ```
 
 ## Interactive Setup
@@ -68,17 +73,56 @@ my-project/
 └── package.json
 ```
 
-## Publishing to npm
+## Sharing dengan Team (Tanpa npm Publish)
+
+### 🚀 Quick Start - Install dari GitHub:
+
+```bash
+# 1. Push ke GitHub
+git push origin main
+
+# 2. Di PC lain, install langsung:
+npm install -g git+https://github.com/yourusername/create-pw.git
+
+# 3. Sekarang bisa pakai:
+npm init pw .
+```
+
+### 📦 Alternatif Lain:
+
+**Via Tarball (Offline):**
+```bash
+# Di PC ini:
+npm pack  # Output: create-pw-1.0.0.tgz
+
+# Di PC lain:
+npm install -g /path/to/create-pw-1.0.0.tgz
+npm init pw .
+```
+
+**Via npx (Tanpa Install):**
+```bash
+npx github:yourusername/create-pw my-project
+```
+
+📖 **Lihat [INSTALLATION.md](INSTALLATION.md) untuk cara lengkap!**
+
+---
+
+## Publishing to npm (Optional)
+
+Jika ingin publish ke npm public:
 
 ```bash
 # 1. Login ke npm
 npm login
 
-# 2. Publish package (pastikan nama unique)
+# 2. Publish package
 npm publish
 
-# 3. Sekarang bisa digunakan dengan:
-npm create playwright-boilerplate my-project
+# 3. Sekarang siapa saja bisa pakai:
+npm init pw .
+npm init pw my-project
 ```
 
 ## Development
@@ -91,10 +135,10 @@ npm install
 
 # Test CLI locally
 npm link
-create-playwright-boilerplate test-project
+npm init pw test-project
 
 # Unlink setelah selesai
-npm unlink -g create-playwright-boilerplate
+npm unlink -g create-pw
 ```
 
 ## Requirements

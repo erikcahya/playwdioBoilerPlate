@@ -1,10 +1,10 @@
 {
-  "name": "create-playwright-boilerplate",
+  "name": "create-pw",
   "version": "1.0.0",
   "description": "CLI tool to generate Playwright test automation projects",
   "type": "module",
   "bin": {
-    "create-playwright-boilerplate": "./bin/cli.js"
+    "create-pw": "./bin/cli.js"
   },
   "files": [
     "bin",
@@ -22,7 +22,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/create-playwright-boilerplate.git"
+    "url": "https://github.com/yourusername/create-pw.git"
   },
   "engines": {
     "node": ">=16.0.0"

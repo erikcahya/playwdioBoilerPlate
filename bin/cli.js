@@ -117,21 +117,49 @@ async function main() {
 
   // Get project name from arguments or prompt
   let projectName = process.argv[2];
+  let projectPath;
 
-  if (!projectName) {
-    projectName = await question(colors.blue + 'Project name: ' + colors.reset);
-    if (!projectName) {
-      log('Error: Project name is required!', 'red');
+  // Support for "." to use current directory
+  if (projectName === '.') {
+    projectPath = process.cwd();
+    projectName = path.basename(projectPath);
+
+    // Check if current directory is empty (allow only package.json, .git, README.md)
+    const existingFiles = fs.readdirSync(projectPath);
+    const allowedFiles = ['package.json', '.git', 'README.md', '.gitignore', 'node_modules'];
+    const conflictingFiles = existingFiles.filter(f => !allowedFiles.includes(f));
+
+    if (conflictingFiles.length > 0) {
+      log('Error: Current directory is not empty!', 'red');
+      log('Please use an empty directory or specify a project name.', 'yellow');
       process.exit(1);
     }
-  }
 
-  const projectPath = path.join(process.cwd(), projectName);
+    log(`📁 Using current directory: ${projectName}\n`, 'cyan');
+  } else {
+    if (!projectName) {
+      projectName = await question(colors.blue + 'Project name (or "." for current directory): ' + colors.reset);
+      if (!projectName) {
+        log('Error: Project name is required!', 'red');
+        process.exit(1);
+      }
 
-  // Check if directory already exists
-  if (fs.existsSync(projectPath)) {
-    log(`Error: Directory "${projectName}" already exists!`, 'red');
-    process.exit(1);
+      // Check again if user entered "."
+      if (projectName === '.') {
+        projectPath = process.cwd();
+        projectName = path.basename(projectPath);
+      } else {
+        projectPath = path.join(process.cwd(), projectName);
+      }
+    } else {
+      projectPath = path.join(process.cwd(), projectName);
+    }
+
+    // Check if directory already exists (only for non-current directory)
+    if (projectName !== path.basename(process.cwd()) && fs.existsSync(projectPath)) {
+      log(`Error: Directory "${projectName}" already exists!`, 'red');
+      process.exit(1);
+    }
   }
 
   log('\n📝 Project configuration:\n', 'bright');
