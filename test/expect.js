@@ -4,6 +4,17 @@
  */
 import { expect } from '@playwright/test';
 
+
+export class SecurePage{
+  constructor(page) {
+    this.page = page;
+  }
+
+  get brHome(){
+    return this.page.locator('isi locator');
+  }
+}
+
 expect.extend({
   async toHaveTitleAndURL(page, { title, urlPart }) {
     const actualTitle = await page.title();

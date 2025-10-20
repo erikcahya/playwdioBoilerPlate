@@ -6,9 +6,9 @@ import './utils/matchers.js';
 test.describe('Example spec', () => {
   test('should open home and have correct title', async ({ page }) => {
     const home = new BasePage(page);
-    await home.goto('/');
-    await expect(page).toHaveTitle(/Example|Playwright/i);
-    await expect(page).toHaveURL(/\//);
-    await expect(page).toHaveTitleAndURL({ title: 'Fast and reliable end-to-end testing for modern web apps | Playwright', urlPart: '/'  });
+    await expect(page).toHaveTitle("BR Form");
+    await home.login(process.env.USERNAME, process.env.PASSWORD)
+    await expect(SecurePageInstance.brHome).toBeVisible()
+    await expect(SecurePageInstance.brHome).toContainText('IT BR Request System')
   });
 });
