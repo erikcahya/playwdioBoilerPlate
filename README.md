@@ -75,32 +75,33 @@ my-project/
 
 ## Sharing dengan Team (Tanpa npm Publish)
 
-### 🚀 Quick Start - Install dari GitHub:
+### 🚀 Quick Start - Via Tarball (Recommended):
 
 ```bash
-# 1. Push ke GitHub
-git push origin main
+# Di PC ini (yang ada project):
+npm pack
+# Output: create-pw-1.0.0.tgz
 
-# 2. Di PC lain, install langsung:
-npm install -g git+https://github.com/yourusername/create-pw.git
+# Copy file .tgz ke PC lain, lalu install:
+npm install -g C:\path\to\create-pw-1.0.0.tgz
 
-# 3. Sekarang bisa pakai:
+# Sekarang bisa pakai:
 npm init pw .
+npm init pw my-project
 ```
 
 ### 📦 Alternatif Lain:
 
-**Via Tarball (Offline):**
+**Via GitHub (Butuh Git & Network Access):**
 ```bash
-# Di PC ini:
-npm pack  # Output: create-pw-1.0.0.tgz
+# Install langsung dari GitHub
+npm install -g https://github.com/yourusername/create-pw.git
 
-# Di PC lain:
-npm install -g /path/to/create-pw-1.0.0.tgz
-npm init pw .
+# Jika error SSH port 22, jalankan ini dulu:
+git config --global url."https://github.com/".insteadOf git@github.com:
 ```
 
-**Via npx (Tanpa Install):**
+**Via npx (Tanpa Install Global):**
 ```bash
 npx github:yourusername/create-pw my-project
 ```

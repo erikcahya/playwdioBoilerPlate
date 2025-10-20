@@ -12,7 +12,7 @@ Paling mudah dan otomatis update.
 
 ```bash
 # Di PC lain, install langsung dari GitHub
-npm install -g git+https://github.com/yourusername/create-pw.git
+npm install -g https://github.com/yourusername/create-pw.git
 
 # Atau dengan npm init (jika sudah di GitHub)
 npm init pw .
@@ -35,7 +35,7 @@ git push -u origin main
 
 ```bash
 # Install global dari GitHub
-npm install -g git+https://github.com/yourusername/create-pw.git
+npm install -g https://github.com/yourusername/create-pw.git
 
 # Sekarang bisa pakai:
 npm init pw .
@@ -49,7 +49,7 @@ npm init pw my-project
 npm uninstall -g create-pw
 
 # Install versi terbaru dari GitHub
-npm install -g git+https://github.com/yourusername/create-pw.git
+npm install -g https://github.com/yourusername/create-pw.git
 ```
 
 ---
